@@ -1,3 +1,5 @@
+//Insert Values to Company Database
+
 <?php
 	$servername="localhost:3308";
 	$username="";
@@ -20,18 +22,6 @@
 		$hr=$_POST['hr'];
 		$worth=$_POST['worth'];
 		$founder=$_POST['founder'];
-		
-		/*echo $name . "<BR>";
-		echo $email. "<BR>";
-		echo $dob. "<BR>";
-		echo $branch. "<BR>";
-		echo $year. "<BR>";
-		echo $cpi. "<BR>";
-		echo $twp. "<BR>";
-		echo $tenp. "<BR>";
-		echo $pwd. "<BR>";
-		echo $phone. "<BR>";
-		echo $degree. "<BR>";*/
 		
 		$sql="INSERT into companys(name,email,pwd,phone,location,ceo,hr,worth,founder) 
 		   values('$name','$email','$pwd','$phone','$location','$ceo','$hr','$worth','$founder')";
