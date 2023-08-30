@@ -11,7 +11,7 @@
 					<a class="navbar-brand" href="#">Campus Recruitment System</a>
 				</div>
 				<ul id="list1" class="nav navbar-nav">
-					<li class="active"><a href="student_dash.php">Home</a></li>
+					<li class="active"><a href="company_dash.php">Home</a></li>
 					<li class="active"><a href="index.html">Logout</a></li>
 					
 					
@@ -40,7 +40,7 @@
 			if($_SERVER["REQUEST_METHOD"]=="POST"){
 					$uname = $_POST['uname'];
 					$pwd = $_POST['pwd'];
-					$sql1="SELECT pwd from students where email=\"" . $uname . "\"";
+					$sql1="SELECT pwd from companys where email=\"" . $uname . "\"";
 					$result = $GLOBALS['conn']->query($sql1);
 					if($result->num_rows == 0){
 					    phpAlert(   "Wrong username entered!"   );
@@ -49,12 +49,15 @@
 					}else{
 					$row=$result->fetch_assoc();
 						if($row['pwd']==$pwd){
-							$sql2="Delete from students where email='".$uname."'";
+							$sql2="Delete from companys where email='".$uname."'";
 							$result = $GLOBALS['conn']->query($sql2);
 							//phpAlert("Deleted!");
 							//header('Location: index.html');
-							$sql3="Delete from applications where s_mail='".$uname."'";
+							$sql3="Delete from applications where c_mail='".$uname."'";
 							$result3 = $GLOBALS['conn']->query($sql3);
+							
+							$sql4="Delete from vacancy where company_name='".$_SESSION['name']."'";
+							$result4 = $GLOBALS['conn']->query($sql4);
 							
 							echo "<SCRIPT type='text/javascript'> //not showing me this
 								alert('Deleted');
