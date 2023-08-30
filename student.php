@@ -1,4 +1,5 @@
 <?php
+	
 	$servername="localhost";
 	$username="root";
 	$password="password";
@@ -13,15 +14,17 @@
 	if($_SERVER["REQUEST_METHOD"]=="POST"){
 		$name=$_POST['name'];
 		$email=$_POST['email'];
+		$dob=$_POST['dob'];
+		$branch=$_POST['branch'];
+		$year=$_POST['year'];
+		$cpi=$_POST['cpi'];
+		$twp=$_POST['12p'];
+		$tenp=$_POST['10p'];
 		$pwd=$_POST['pwd'];
 		$phone=$_POST['phone'];
-		$location=$_POST['location'];
-		$ceo=$_POST['ceo'];
-		$cto=$_POST['cto'];
-		$hr=$_POST['hr'];
-		$worth=$_POST['worth'];
-		$found=$_POST['found'];
-		$founder=$_POST['founder'];
+		$degree=$_POST['degree'];
+		
+		
 		
 		/*echo $name . "<BR>";
 		echo $email. "<BR>";
@@ -33,12 +36,14 @@
 		echo $tenp. "<BR>";
 		echo $pwd. "<BR>";
 		echo $phone. "<BR>";
-		echo $degree. "<BR>";*/
+		echo $degree. "<BR>";
+		*/
 		
-		$sql="INSERT into companys values(\"".$name."\",\"".$email."\",\"".$pwd."\",".$phone.",\"".$location."\",\"".$ceo."\",\"".$cto."\",\"".$hr."\",".$worth.",\"".$found."\",\"".$founder."\",\" \" );";
-		if($conn->query($sql) === TRUE){
+		
+		$sql="INSERT into students values(\"".$name."\",\"".$email."\",\"".$dob."\",\"".$branch."\",".$year.",".$cpi.",".$twp.",".$tenp.",\"".$pwd."\",".$phone.",\"".$degree."\",\" \" );";
+		
+		if($conn->query($sql)===TRUE){
 			$GLOBALS['conn']->close();
-		
 		echo "<SCRIPT type='text/javascript'> //not showing me this
 								alert('Account Created!');
 								window.location.replace(\"index.html\");
@@ -47,6 +52,8 @@
 			echo "Error: " . $sql . "<br>" . $conn->error;
 		}
 		
+		
+						
 	}
 	
 	

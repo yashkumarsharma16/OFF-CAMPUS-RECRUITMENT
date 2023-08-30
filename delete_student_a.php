@@ -11,7 +11,7 @@
 					<a class="navbar-brand" href="#">Campus Recruitment System</a>
 				</div>
 				<ul id="list1" class="nav navbar-nav">
-					<li class="active"><a href="student_dash.php">Home</a></li>
+					<li class="active"><a href="admin_dash.php">Home</a></li>
 					<li class="active"><a href="index.html">Logout</a></li>
 					
 					
@@ -39,8 +39,7 @@
 				  
 			if($_SERVER["REQUEST_METHOD"]=="POST"){
 					$uname = $_POST['uname'];
-					$pwd = $_POST['pwd'];
-					$sql1="SELECT pwd from students where email=\"" . $uname . "\"";
+					$sql1="SELECT * from students where email=\"" . $uname . "\"";
 					$result = $GLOBALS['conn']->query($sql1);
 					if($result->num_rows == 0){
 					    phpAlert(   "Wrong username entered!"   );
@@ -48,7 +47,7 @@
 
 					}else{
 					$row=$result->fetch_assoc();
-						if($row['pwd']==$pwd){
+						
 							$sql2="Delete from students where email='".$uname."'";
 							$result = $GLOBALS['conn']->query($sql2);
 							//phpAlert("Deleted!");
@@ -58,12 +57,9 @@
 							
 							echo "<SCRIPT type='text/javascript'> //not showing me this
 								alert('Deleted');
-								window.location.replace(\"index.html\");
+								window.location.replace(\"admin_dash.php\");
 							</SCRIPT>";
-						}else{
-							phpAlert(   "Wrong password!"   );
-							
-						}
+						
 					}
 			}
         //echo $uname . "<BR>";
@@ -84,12 +80,8 @@
 	<div class="well container-fluid text-center" id="frm1">
 		<form action="" method="POST">
 			<div>
-				<label for="usrnm"><b>Enter Username</b></label>
+				<label for="usrnm"><b>Enter Username to delete</b></label>
 				<input type="text" placeholder="Enter Username" name="uname" id="usrnm" required>
-			</div>
-			<div>
-				<label for="pswrd"><b>Enter Password</b></label>
-				<input type="password" placeholder="Enter Password" name="pwd" id="pswrd" required>
 			</div>
 			<div>
 				<button type="submit">Delete</button>
