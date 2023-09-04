@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Settings</title>
+</head>
+<body>
+    <h1>Settings</h1>
+
+    <!-- Change Password Form -->
+    <h2>Change Password</h2>
+    <form action="changepassword.php" method="post">
+        <label for="current_password">Current Password:</label>
+        <input type="password" name="current_password" required><br><br>
+
+        <label for="new_password">New Password:</label>
+        <input type="password" name="new_password" required><br><br>
+
+        <label for="confirm_password">Confirm New Password:</label>
+        <input type="password" name="confirm_password" required><br><br>
+
+        <input type="submit" name="change_password" value="Change Password">
+    </form>
+
+    <!-- Edit Details Form -->
+    <h2>Edit Details</h2>
+    <form action="editdetails.php" method="post">
+        <!-- Include input fields for editing user details (e.g., name, email, etc.) -->
+        <label for="name">Name:</label>
+        <input type="text" name="name" required><br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" name="email" required><br><br>
+
+        <!-- Add more fields as needed -->
+
+        <input type="submit" name="edit_details" value="Save Details">
+    </form>
+</body>
+</html>
