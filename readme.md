@@ -11,7 +11,7 @@
 ##### YASH SHARMA 
 ##### 23030141080
 
-##### MEHSANIYA AFRINBANU
+##### MAHASANIYA AFRINBANU
 ##### 23030141038
 
 ##### DIKSHA MOTHDIYA
@@ -71,8 +71,6 @@ placed students, job profiles etc. and can delete the records as well.
 
 #### Front-End: HTML, CSS, JavaScript
 
-#### Back-End: PHP
-
-#### Database: MySQL
+#### Back-End: PHP, MySQL
 
 #### Software Stack: WAMP
